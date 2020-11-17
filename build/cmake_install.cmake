@@ -1,4 +1,4 @@
-# Install script for directory: /homes/sc7617/ACA20-21/GBP-challenge
+# Install script for directory: /homes/sc7617/ACA20-21/GBP-challenge-git-repo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/homes/sc7617/ACA20-21/GBP-challenge/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

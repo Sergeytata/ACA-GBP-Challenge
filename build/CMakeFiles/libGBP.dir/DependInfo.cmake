@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/homes/sc7617/ACA20-21/GBP-challenge/src/factor.cc" "/homes/sc7617/ACA20-21/GBP-challenge/build/CMakeFiles/libGBP.dir/src/factor.cc.o"
-  "/homes/sc7617/ACA20-21/GBP-challenge/src/variable.cc" "/homes/sc7617/ACA20-21/GBP-challenge/build/CMakeFiles/libGBP.dir/src/variable.cc.o"
+  "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/factor.cc" "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/build/CMakeFiles/libGBP.dir/src/factor.cc.o"
+  "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/variable.cc" "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/build/CMakeFiles/libGBP.dir/src/variable.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

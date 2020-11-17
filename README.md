@@ -1,8 +1,4 @@
-# ACA Project
-
-
-
-### GBP - Gaussian Belief Propagation
+# GBP - Gaussian Belief Propagation
 To build
 ```
 mkdir build

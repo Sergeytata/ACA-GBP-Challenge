@@ -23,12 +23,28 @@ public:
         }
     }
     void iteration() {
-        for (auto &variable : variables_) {
+        int variables_size = variables_.size();
+        int factors_size = factors_.size();
+        
+        // for (auto &variable : variables_) {
+        //     variable->update_belief();
+        // }
+
+        parallel_for  (size_t(0), variables_size, [&](size_t i) {
+            variable = &variables_[i];
             variable->update_belief();
-        }
-        for (auto &factor: factors_) {
-            factor->update_factor();
-        }
+            std::cout << "triigger" << std::endl;
+        });
+
+        // for (auto &factor: factors_) {
+        //     factor->update_factor();
+        // }
+
+        parallel_for  (size_t(0), factors_size, [&](size_t i) {
+            factor = &factors_[i];
+            factor->update_factor()
+        });
+
         for (auto &variable : variables_) {
             variable->send_messages();
         }

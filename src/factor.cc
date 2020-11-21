@@ -1,5 +1,6 @@
 #include <factor.h>
 #include <variable.h>
+#include <omp.h>
 
 Factor::Factor(const std::string &id) : id_(id) {}
 
@@ -39,7 +40,10 @@ void Factor::send_messages() {
     Eigen::MatrixXd lam_all = factor_.lam();
 
     int i = 0;
+    // #pragma omp parallel for
     for (Variable *v : neighbors_) {
+    // for (size_t k = 0; k < neighbors_.size(); k++){
+    //     Variable *v = neighbors_[k];
         Gaussian msg = inbox_[v->id()];
         int j = i + msg.eta().size() - 1;
         eta_all(Eigen::seq(i, j)) += msg.eta();
@@ -47,7 +51,10 @@ void Factor::send_messages() {
         i = j + 1;
     }
     i = 0;
+    // #pragma omp parallel for
     for (Variable *v : neighbors_) {
+    // for (size_t k = 0; k < neighbors_.size(); k++){
+        // Variable *v = neighbors_[k];
         Gaussian msg = inbox_[v->id()];
         int j = i + msg.eta().size() - 1;
         Eigen::VectorXd eta = eta_all;

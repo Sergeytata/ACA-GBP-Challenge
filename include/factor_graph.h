@@ -3,10 +3,24 @@
 #include <memory>
 #include <factor.h>
 #include <variable.h>
+// #include <future>
+#include <vector>
+// #include <iostream>
+#include <omp.h>
+#define THREAD_NUM 4
+
+
+// #include <execution>
+// #include <thread>
 class FactorGraph {
 private:
     std::vector<std::unique_ptr<Factor>> factors_;
     std::vector<std::unique_ptr<Variable>> variables_;
+    int variables_size = variables_.size();
+    int factors_size = factors_.size();
+    // std::future<void> variable_futures_ [5000];
+    // std::future<void> factors_futures_ [10000];
+    // std::vector<std::future<void>> variable_futures_;
 public:
 
     FactorGraph() {}
@@ -24,16 +38,39 @@ public:
         }
     }
     void iteration() {
+        // int variables_size = variables_.size();
+        int factors_size = factors_.size();
+
+    
+        
+        // omp_set_dynamic(0);
+        // omp_set_num_threads(THREAD_NUM);
+        #pragma omp parallel for
+            for (size_t i = 0; i < variables_.size() ; i++) {
+                auto &variable = variables_[i];
+                variable->update_belief();
+            }
+
+        // for (auto &variable : variables_) {
+        //     variable->update_belief();
+        // }
+        #pragma omp parallel for
+        // for (auto &factor: factors_) {
+            for (size_t i = 0; i < factors_size ; i++) {
+                auto &factor = factors_[i];
+                factor->update_factor();
+            }
+
+        // #pragma omp parallel for
         for (auto &variable : variables_) {
-            variable->update_belief();
-        }
-        for (auto &factor: factors_) {
-            factor->update_factor();
-        }
-        for (auto &variable : variables_) {
+        // for (size_t i = 0; i < variables_.size() ; i++) {
+            // auto &variable = variables_[i];
             variable->send_messages();
         }
-        for (auto &factor: factors_) {
+        #pragma omp parallel for
+        // for (auto &factor: factors_) {
+        for (size_t i = 0; i < factors_.size() ; i++) {
+            auto &factor = factors_[i];
             factor->send_messages();
         }
     }

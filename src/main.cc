@@ -8,6 +8,9 @@
 #include <factor.h>
 #include <variable.h>
 #include <factor_graph.h>
+#include <algorithm>
+// #include <execution>
+
 std::mt19937 mt;
 
 std::vector<std::pair<double, double>> make_random_poses(int N) {
@@ -27,6 +30,7 @@ std::vector<std::pair<double, double>> make_random_poses(int N) {
 }
 
 int main (int argc, char **argv) {
+    // std::cout << "HELLO" << std::endl;
     if (argc != 2) {
         std::cout << "Expected number of poses as argument\n";
         exit(EXIT_FAILURE);

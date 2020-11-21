@@ -13,7 +13,10 @@ const Gaussian &Variable::belief() const { return belief_; }
 void Variable::update_belief() {
     Eigen::VectorXd eta = prior_.eta();
     Eigen::MatrixXd lam = prior_.lam();
+    // #pragma omp parallel for
     for (Factor *f : neighbors_) {
+    // for (size_t i = 0; i < neighbors_.size(); i++){
+    //     Factor *f = neighbors_[i];
         if (inbox_.count(f->id())) {
             eta += inbox_[f->id()].eta();
             lam += inbox_[f->id()].lam();
@@ -23,7 +26,10 @@ void Variable::update_belief() {
 }
 
 void Variable::send_messages() {
-    for (Factor *f : neighbors_) {
+    #pragma omp parallel for
+    // for (Factor *f : neighbors_) {
+    for (size_t i = 0; i < neighbors_.size(); i++){
+        Factor *f = neighbors_[i];
         Gaussian msg = belief_;
         if (inbox_.count(f->id())) {
             msg.eta() -= inbox_[f->id()].eta();

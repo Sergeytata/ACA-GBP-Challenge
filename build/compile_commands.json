@@ -1,17 +1,17 @@
 [
 {
   "directory": "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/build",
-  "command": "/usr/bin/c++   -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/include -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/third_party   -std=c++11 -O3    -std=gnu++11 -o CMakeFiles/libGBP.dir/src/variable.cc.o -c /homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/variable.cc",
+  "command": "/usr/bin/c++   -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/include -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/third_party   -std=c++17 -fopenmp -O3    -std=gnu++1z -o CMakeFiles/libGBP.dir/src/variable.cc.o -c /homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/variable.cc",
   "file": "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/variable.cc"
 },
 {
   "directory": "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/build",
-  "command": "/usr/bin/c++   -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/include -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/third_party   -std=c++11 -O3    -std=gnu++11 -o CMakeFiles/libGBP.dir/src/factor.cc.o -c /homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/factor.cc",
+  "command": "/usr/bin/c++   -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/include -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/third_party   -std=c++17 -fopenmp -O3    -std=gnu++1z -o CMakeFiles/libGBP.dir/src/factor.cc.o -c /homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/factor.cc",
   "file": "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/factor.cc"
 },
 {
   "directory": "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/build",
-  "command": "/usr/bin/c++   -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/include -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/third_party   -std=c++11 -O3    -std=gnu++11 -o CMakeFiles/GBP.dir/src/main.cc.o -c /homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/main.cc",
+  "command": "/usr/bin/c++   -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/include -I/homes/sc7617/ACA20-21/GBP-challenge-git-repo/third_party   -std=c++17 -fopenmp -O3    -std=gnu++1z -o CMakeFiles/GBP.dir/src/main.cc.o -c /homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/main.cc",
   "file": "/homes/sc7617/ACA20-21/GBP-challenge-git-repo/src/main.cc"
 }
 ]

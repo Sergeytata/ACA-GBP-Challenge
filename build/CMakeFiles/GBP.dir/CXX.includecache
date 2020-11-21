@@ -21,6 +21,10 @@ factor.h
 -
 variable.h
 -
+vector
+-
+omp.h
+-
 
 ../include/gaussian.h
 iostream
@@ -1310,5 +1314,7 @@ factor.h
 variable.h
 -
 factor_graph.h
+-
+algorithm
 -
 

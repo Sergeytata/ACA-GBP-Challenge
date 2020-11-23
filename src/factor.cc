@@ -50,7 +50,7 @@ void Factor::send_messages() {
     // i = j + 1;
     // // ++k;
 
-    #pragma omp target parallel for
+    #pragma omp parallel for
     // for (Variable *v : neighbors_) {
     for (size_t k = 0; k < neighbors_.size(); k++){
         Variable *v = neighbors_[k];
@@ -61,7 +61,7 @@ void Factor::send_messages() {
         i = j + 1;
     }
     i = 0;
-    // #pragma omp parallel for
+    // #pragma omp ?parallel for
     for (Variable *v : neighbors_) {
     // for (size_t k = 0; k < neighbors_.size(); k++){
         // Variable *v = neighbors_[k];

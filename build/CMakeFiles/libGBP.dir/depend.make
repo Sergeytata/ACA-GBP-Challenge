@@ -174,11 +174,6 @@ CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Core/util/Reshap
 CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Core/util/StaticAssert.h
 CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Core/util/SymbolicIndex.h
 CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Core/util/XprHelper.h
-CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/./ComplexSchur.h
-CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
-CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/./RealQZ.h
-CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/./RealSchur.h
-CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/./Tridiagonalization.h
 CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/ComplexEigenSolver.h
 CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/ComplexSchur.h
 CMakeFiles/libGBP.dir/src/factor.cc.o: ../third_party/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h
@@ -420,11 +415,6 @@ CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Core/util/Resh
 CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Core/util/StaticAssert.h
 CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Core/util/SymbolicIndex.h
 CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Core/util/XprHelper.h
-CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/./ComplexSchur.h
-CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
-CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/./RealQZ.h
-CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/./RealSchur.h
-CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/./Tridiagonalization.h
 CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/ComplexEigenSolver.h
 CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/ComplexSchur.h
 CMakeFiles/libGBP.dir/src/variable.cc.o: ../third_party/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h

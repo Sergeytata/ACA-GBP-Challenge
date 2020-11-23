@@ -22,7 +22,7 @@ void Variable::update_belief() {
     // }
     // ++i;
     
-    // #pragma omp parallel for
+    #pragma omp parallel for
     // for (Factor *f : neighbors_) {
     for (size_t i = 0; i < neighbors_.size(); i++){
         Factor *f = neighbors_[i];

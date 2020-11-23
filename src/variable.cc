@@ -42,11 +42,11 @@ void Variable::update_belief(std::map<Factor*, std::pair<int,int>>* factors_tabl
     // }
 }
 
-void Variable::send_messages() {
-    #pragma omp parallel for
-    // for (Factor *f : neighbors_) {
-    for (size_t i = 0; i < neighbors_.size(); i++){
-        Factor *f = neighbors_[i];
+void Variable::send_messages(std::map<Factor*, std::pair<int,int>>* factors_table) {
+    // #pragma omp parallel for
+    for (Factor *f : neighbors_) {
+    // for (size_t i = 0; i < neighbors_.size(); i++){
+        // Factor *f = neighbors_[i];
         Gaussian msg = belief_;
         if (inbox_.count(f->id())) {
             msg.eta() -= inbox_[f->id()].eta();
@@ -54,6 +54,16 @@ void Variable::send_messages() {
         }
         f->add_message(id_, msg);
 
-        
+        // if((*factors_table)[f].first == (*factors_table)[f].second){
+        //     std::thread t(&Factor::update_factor, f);
+        //     t.detach();
+        //     // f->send_messages();
+        //     (*factors_table)[f].first = 0;
+        // }
     }
+
+    // // #pragma omp parallel for
+    // for (Factor *f : neighbors_){
+        
+    // }
 }

@@ -50,7 +50,7 @@ public:
         
         // omp_set_dynamic(0);
         // omp_set_num_threads(THREAD_NUM);
-        #pragma omp parallel for
+        // #pragma omp parallel for
             for (size_t i = 0; i < variables_.size() ; i++) {
                 auto &variable = variables_[i];
                 variable->update_belief(&factors_table);
@@ -60,7 +60,7 @@ public:
         // for (auto &variable : variables_) {
         //     variable->update_belief();
         // }
-        #pragma omp parallel for
+        // #pragma omp parallel for
         // for (auto &factor: factors_) {
             for (size_t i = 0; i < factors_size ; i++) {
                 auto &factor = factors_[i];
@@ -71,15 +71,16 @@ public:
         for (auto &variable : variables_) {
         // for (size_t i = 0; i < variables_.size() ; i++) {
             // auto &variable = variables_[i];
-            variable->send_messages();
+            variable->send_messages(&factors_table);
         }
-        #pragma omp parallel for
-        // for (auto &factor: factors_) {
-        for (size_t i = 0; i < factors_.size() ; i++) {
-            auto &factor = factors_[i];
+        // #pragma omp parallel for
+        for (auto &factor: factors_) {
+        // for (size_t i = 0; i < factors_.size() ; i++) {
+            // auto &factor = factors_[i];
             factor->send_messages();
         }
     }
+
     double ARE() const {
         double residual_error = 0.f;
         for (auto &factor: factors_) {

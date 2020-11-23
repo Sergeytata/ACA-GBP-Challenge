@@ -23,5 +23,5 @@ public:
     void add_message(const std::string &from, const Gaussian &message);
     void set_prior(const Gaussian &prior);
     void update_belief(std::map<Factor*, std::pair<int,int>>* factors_table);
-    void send_messages();
+    void send_messages(std::map<Factor*, std::pair<int,int>>* factors_table);
 };

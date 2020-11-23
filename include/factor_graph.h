@@ -3,6 +3,8 @@
 #include <memory>
 #include <factor.h>
 #include <variable.h>
+#include <utility>
+#include <map>
 // #include <future>
 #include <vector>
 // #include <iostream>
@@ -22,6 +24,7 @@ private:
     // std::future<void> factors_futures_ [10000];
     // std::vector<std::future<void>> variable_futures_;
 public:
+    std::map<std::unique_ptr<Factor>, std::pair<int,int>> factors_table;
 
     FactorGraph() {}
     Variable *add_variable(const std::string &variable_id) {

@@ -75,6 +75,11 @@ int main (int argc, char **argv) {
     }
 
 
+    FactorGraph* G_ptr = &G;
+
+    
+    
+
     auto start = std::chrono::high_resolution_clock::now();
     int num_iterations = 0;
     for (; num_iterations < 1000; ++num_iterations) {

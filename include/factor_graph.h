@@ -24,7 +24,8 @@ private:
     // std::future<void> factors_futures_ [10000];
     // std::vector<std::future<void>> variable_futures_;
 public:
-    std::map<std::shared_ptr<Factor>, std::pair<int,int>> factors_table;
+    std::map<Factor*, std::pair<int,int>> factors_table;
+    // typedef std::map<std::shared_ptr<Factor>, std::pair<int,int>>* table_ptr;
     std::vector<std::shared_ptr<Factor>> get_factors(){return this->factors_;};
 
     FactorGraph() {}
@@ -52,7 +53,7 @@ public:
         #pragma omp parallel for
             for (size_t i = 0; i < variables_.size() ; i++) {
                 auto &variable = variables_[i];
-                variable->update_belief();
+                variable->update_belief(&factors_table);
             }
 
         // for (auto &variable : variables_) {

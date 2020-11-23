@@ -78,7 +78,7 @@ int main (int argc, char **argv) {
     FactorGraph* G_ptr = &G;
 
     for (auto &factor: G_ptr->get_factors()){
-        G_ptr->factors_table[factor] = std::pair<int,int> {0, factor->get_neighbors_size()};
+        G_ptr->factors_table[factor.get()] = std::pair<int,int> {0, factor->get_neighbors_size()};
     }
 
     std::cout << "Done Preparing Table\n";

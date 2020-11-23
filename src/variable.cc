@@ -1,5 +1,9 @@
 #include <variable.h>
 #include <factor.h>
+#include <map>
+#include <utility>
+#include <memory>
+// #include <factor_graph.h>
 
 Variable::Variable(const std::string &id) : id_(id) {}
 
@@ -10,7 +14,7 @@ void Variable::set_prior(const Gaussian &prior) { prior_ = prior; }
 void Variable::add_message(const std::string &from, const Gaussian &message) { inbox_[from] = message; }
 const Gaussian &Variable::belief() const { return belief_; }
 
-void Variable::update_belief() {
+void Variable::update_belief(std::map<Factor*, std::pair<int,int>>* factors_table) {
     Eigen::VectorXd eta = prior_.eta();
     Eigen::MatrixXd lam = prior_.lam();
     // #pragma omp parallel for
@@ -21,6 +25,7 @@ void Variable::update_belief() {
             eta += inbox_[f->id()].eta();
             lam += inbox_[f->id()].lam();
         }
+        // (*factors_table)[f].first++;
     }
     belief_ = Gaussian(eta, lam);
 }
@@ -36,5 +41,7 @@ void Variable::send_messages() {
             msg.lam() -= inbox_[f->id()].lam();
         }
         f->add_message(id_, msg);
+
+        
     }
 }

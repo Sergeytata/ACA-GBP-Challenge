@@ -27,6 +27,12 @@ unordered_map
 -
 gaussian.h
 -
+map
+-
+utility
+-
+memory
+-
 
 ../third_party/Eigen/Cholesky
 Core
@@ -1290,5 +1296,11 @@ omp.h
 variable.h
 -
 factor.h
+-
+map
+-
+utility
+-
+memory
 -
 

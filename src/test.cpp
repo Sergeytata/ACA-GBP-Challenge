@@ -1,6 +1,7 @@
 #include<iostream>
 #include <utility>
 #include <thread>
+#include <map>
 
 void foo(){
     std::cout << "HEllo World" << std::endl; 
@@ -8,20 +9,26 @@ void foo(){
 
 
 int main(int argc, const char** argv) {
-    std::pair<int,int> p {1,1};
+    std::map<int, int> m;
+    m[1] = 1;
+    m[2] = 2;
 
-    std::pair<int, int> *p_ptr = &p;
+    std::map<int,int>* m_ptr  = &m;
 
-    *p_ptr = std::pair<int, int> {2,2};
+    // std::pair<int,int> p {1,1};
 
-    std::thread t1(&foo);
+    // std::pair<int, int> *p_ptr = &p;
 
-    t1.detach();
+    // *p_ptr = std::pair<int, int> {2,2};
+
+    // std::thread t1(&foo);
+
+    // t1.detach();
 
 
     // t1.join();
 
     
-    std::cout << p_ptr->first << std::endl;
+    std::cout << (*m_ptr)[2] << std::endl;
     return 0;
 }

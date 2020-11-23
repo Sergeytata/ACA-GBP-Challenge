@@ -1,6 +1,10 @@
 #pragma once
 #include <unordered_map>
 #include <gaussian.h>
+#include <map>
+#include <utility>
+#include <memory>
+// #include <factor_graph.h>
 class Factor;
 
 class Variable {
@@ -18,6 +22,6 @@ public:
     void add_neighbor(Factor *f);
     void add_message(const std::string &from, const Gaussian &message);
     void set_prior(const Gaussian &prior);
-    void update_belief();
+    void update_belief(std::map<Factor*, std::pair<int,int>>* factors_table);
     void send_messages();
 };

@@ -14,9 +14,18 @@ void Variable::update_belief() {
     Eigen::VectorXd eta = prior_.eta();
     Eigen::MatrixXd lam = prior_.lam();
     // #pragma omp parallel for
-    for (Factor *f : neighbors_) {
-    // for (size_t i = 0; i < neighbors_.size(); i++){
-    //     Factor *f = neighbors_[i];
+    // size_t i = 0;
+    // Factor *f = neighbors_[0];
+    // if (inbox_.count(f->id())) {
+    //     eta += inbox_[f->id()].eta();
+    //     lam += inbox_[f->id()].lam();
+    // }
+    // ++i;
+    
+    // #pragma omp parallel for
+    // for (Factor *f : neighbors_) {
+    for (size_t i = 0; i < neighbors_.size(); i++){
+        Factor *f = neighbors_[i];
         if (inbox_.count(f->id())) {
             eta += inbox_[f->id()].eta();
             lam += inbox_[f->id()].lam();

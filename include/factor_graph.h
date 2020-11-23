@@ -42,16 +42,18 @@ public:
         // omp_set_dynamic(0);
         // omp_set_num_threads(THREAD_NUM);
         #pragma omp parallel for
-            for(auto &variable: variables_){
-            // for (size_t i = 0; i < variables_.size() ; i++) {
-            //     auto &variable = variables_[i];
+        // #pragma omp target data map(tofrom: variables_[0:variables_size])
+        // #pragma omp target teams distribute parallel for
+            // for(auto &variable: variables_){
+            for (size_t i = 0; i < variables_.size() ; i++) {
+                auto &variable = variables_[i];
                 variable->update_belief();
             }
 
         // for (auto &variable : variables_) {
         //     variable->update_belief();
         // }
-        #pragma omp parallel for
+        // #pragma omp parallel for
         for (auto &factor: factors_) {
             // for (size_t i = 0; i < factors_size ; i++) {
                 // auto &factor = factors_[i];
@@ -65,9 +67,10 @@ public:
             variable->send_messages();
         }
         #pragma omp parallel for
-        for (auto &factor: factors_) {
-        // for (size_t i = 0; i < factors_.size() ; i++) {
-            // auto &factor = factors_[i];
+        // #pragma omp target teams distribute parallel for
+        // for (auto &factor: factors_) {
+        for (size_t i = 0; i < factors_.size() ; i++) {
+            auto &factor = factors_[i];
             factor->send_messages();
         }
     }
@@ -75,13 +78,17 @@ public:
 
     void iteration() {
         // int variables_size = variables_.size();
-        int factors_size = factors_.size();
+        // int factors_size = factors_.size();
 
     
         
         // omp_set_dynamic(0);
         // omp_set_num_threads(THREAD_NUM);
         #pragma omp parallel for
+        // #pragma omp target data map(tofrom: variables_[0:variables_size])
+        // #pragma omp target teams distribute parallel for
+        // #pragma omp teams distribute parallel for collapse(2)
+        // for(auto &variable: variables_){
             for (size_t i = 0; i < variables_.size() ; i++) {
                 auto &variable = variables_[i];
                 variable->update_belief();
@@ -90,20 +97,23 @@ public:
         // for (auto &variable : variables_) {
         //     variable->update_belief();
         // }
-        #pragma omp parallel for
-        // for (auto &factor: factors_) {
-            for (size_t i = 0; i < factors_size ; i++) {
-                auto &factor = factors_[i];
+        // #pragma omp parallel for
+        // #pragma omp target teams distribute parallel for
+        for (auto &factor: factors_) {
+            // for (size_t i = 0; i < factors_size ; i++) {
+            //     auto &factor = factors_[i];
                 factor->update_factor();
             }
 
         #pragma omp parallel for
-        for (auto &variable : variables_) {
-        // for (size_t i = 0; i < variables_.size() ; i++) {
-            // auto &variable = variables_[i];
+        // #pragma omp target teams distribute parallel for
+        // for (auto &variable : variables_) {
+        for (size_t i = 0; i < variables_.size() ; i++) {
+            auto &variable = variables_[i];
             variable->send_messages();
         }
         #pragma omp parallel for
+        // #pragma omp target teams distribute parallel for
         // for (auto &factor: factors_) {
         for (size_t i = 0; i < factors_.size() ; i++) {
             auto &factor = factors_[i];

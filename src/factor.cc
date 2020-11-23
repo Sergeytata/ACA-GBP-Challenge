@@ -41,6 +41,8 @@ void Factor::send_messages() {
 
     int i = 0;
 
+    // auto *eta_array = eta_all.data();
+
     // size_t k = 0;
     // Variable *v = neighbors_[k];
     // Gaussian msg = inbox_[v->id()];
@@ -50,10 +52,14 @@ void Factor::send_messages() {
     // i = j + 1;
     // // ++k;
 
-    #pragma omp target parallel for
-    // for (Variable *v : neighbors_) {
-    for (size_t k = 0; k < neighbors_.size(); k++){
-        Variable *v = neighbors_[k];
+    // int neighbors_size = neighbors_.size();
+    // #pragma omp target parallel for
+    // #pragma omp target data map (to: neighbors_[0:neighbors_size]) map (tofrom: eta_all[0:1], lam_all[0:1])
+    // #pragma omp target
+    // #pragma omp teams distribute parallel for collapse(2)
+    for (Variable *v : neighbors_) {
+    // for (size_t k = 0; k < neighbors_.size(); k++){
+    //     Variable *v = neighbors_[k];
         Gaussian msg = inbox_[v->id()];
         int j = i + msg.eta().size() - 1;
         eta_all(Eigen::seq(i, j)) += msg.eta();

@@ -32,14 +32,14 @@ void Variable::update_belief(std::map<Factor*, std::pair<int,int>>* factors_tabl
     belief_ = Gaussian(eta, lam);
 
     // #pragma omp parallel for
-    // for (Factor *f : neighbors_){
-    //     if((*factors_table)[f].first == (*factors_table)[f].second){
-    //         // std::thread t(&Factor::update_factor, f);
-    //         // t.detach();
-    //         f->update_factor();
-    //         (*factors_table)[f].first = 0;
-    //     }
-    // }
+    for (Factor *f : neighbors_){
+        if((*factors_table)[f].first == (*factors_table)[f].second){
+            std::thread t(&Factor::update_factor, f);
+            t.detach();
+            // f->update_factor();
+            (*factors_table)[f].first = 0;
+        }
+    }
 }
 
 void Variable::send_messages() {

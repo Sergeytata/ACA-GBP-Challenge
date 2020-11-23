@@ -88,7 +88,7 @@ int main (int argc, char **argv) {
 
     auto start = std::chrono::high_resolution_clock::now();
     int num_iterations = 0;
-    for (; num_iterations < 1000; ++num_iterations) {
+    for (; num_iterations < 100; ++num_iterations) {
         G.iteration();
         if (G.ARE() / N < 1e-7) { break; }
     }

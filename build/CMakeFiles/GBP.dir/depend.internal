@@ -177,11 +177,6 @@ CMakeFiles/GBP.dir/src/main.cc.o
  ../third_party/Eigen/src/Core/util/StaticAssert.h
  ../third_party/Eigen/src/Core/util/SymbolicIndex.h
  ../third_party/Eigen/src/Core/util/XprHelper.h
- ../third_party/Eigen/src/Eigenvalues/./ComplexSchur.h
- ../third_party/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
- ../third_party/Eigen/src/Eigenvalues/./RealQZ.h
- ../third_party/Eigen/src/Eigenvalues/./RealSchur.h
- ../third_party/Eigen/src/Eigenvalues/./Tridiagonalization.h
  ../third_party/Eigen/src/Eigenvalues/ComplexEigenSolver.h
  ../third_party/Eigen/src/Eigenvalues/ComplexSchur.h
  ../third_party/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h

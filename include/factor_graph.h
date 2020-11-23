@@ -56,6 +56,7 @@ public:
                 variable->update_belief(&factors_table);
             }
 
+        // std::cout << "The first loop is passed\n";
         // for (auto &variable : variables_) {
         //     variable->update_belief();
         // }

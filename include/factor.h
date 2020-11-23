@@ -14,6 +14,7 @@ private:
     Eigen::VectorXd flatten(const std::vector<Eigen::VectorXd> &xs);
 
 public:
+    int get_neighbors_size(){return neighbors_.size();};
     Factor(const std::string &id);
     const std::string id() const;
     void add_message(const std::string &from, const Gaussian &message);

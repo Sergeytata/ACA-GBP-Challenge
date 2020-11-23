@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/GBP.dir/src/main.cc.o"
-  "GBP.pdb"
   "GBP"
+  "GBP.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

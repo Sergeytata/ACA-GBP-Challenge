@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/libGBP.dir/src/variable.cc.o"
   "CMakeFiles/libGBP.dir/src/factor.cc.o"
-  "liblibGBP.pdb"
+  "CMakeFiles/libGBP.dir/src/variable.cc.o"
   "liblibGBP.a"
+  "liblibGBP.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

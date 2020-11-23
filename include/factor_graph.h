@@ -16,7 +16,7 @@
 // #include <thread>
 class FactorGraph {
 private:
-    std::vector<std::unique_ptr<Factor>> factors_;
+    std::vector<std::shared_ptr<Factor>> factors_;
     std::vector<std::unique_ptr<Variable>> variables_;
     int variables_size = variables_.size();
     int factors_size = factors_.size();
@@ -24,7 +24,8 @@ private:
     // std::future<void> factors_futures_ [10000];
     // std::vector<std::future<void>> variable_futures_;
 public:
-    std::map<std::unique_ptr<Factor>, std::pair<int,int>> factors_table;
+    std::map<std::shared_ptr<Factor>, std::pair<int,int>> factors_table;
+    std::vector<std::shared_ptr<Factor>> get_factors(){return this->factors_;};
 
     FactorGraph() {}
     Variable *add_variable(const std::string &variable_id) {
